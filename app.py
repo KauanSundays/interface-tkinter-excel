@@ -10,5 +10,6 @@ root=Tk()
 root.title("Data Entry")
 root.geometry('700x400+300+200')
 root.resizable(False,False)
+root.configure(bg='#326273') #cor de fundo
 
 root.mainloop()
