@@ -20,6 +20,10 @@ root.iconphoto(False,icon_image)
 Label(root, text="Please, Complete full this form", font="arial 14", bg="#fff", fg="#000").place(x=20,y=20)
 
 #label
-
+Label(root, text='Name', font=23, bg="#000", fg='#fff').place(x=50, y=100)
+Label(root, text='Contact no.', font=23, bg="#000", fg='#fff').place(x=50, y=150)
+Label(root, text='Age', font=23, bg="#000", fg='#fff').place(x=50, y=200)
+Label(root, text='Gender', font=23, bg="#000", fg='#fff').place(x=370, y=200)
+Label(root, text='Address', font=23, bg="#000", fg='#fff').place(x=50, y=250)
 
 root.mainloop()
