@@ -36,12 +36,17 @@ nameEntry = Entry(root, textvariable=nameValue, width=45, bd=2, font=20)
 contactEntry = Entry(root, textvariable=nameValue, width=45, bd=2, font=20)
 AgeEntry = Entry(root, textvariable=nameValue, width=15, bd=2, font=20)
 
-#gender
+#gender / caixinha com opções
 gender_combobox =  Combobox(root,values=['Male', 'Female'], font='arial 14', state='r', width=14)
-gender_combobox.place(x=400, y=200)
+gender_combobox.place(x=440, y=200)
+
+#Address
+
+addressEntry = Text(root, width=50, height=4, bd=2)
 
 nameEntry.place(x=110,y=100)
 contactEntry.place(x=110,y=150)
 AgeEntry.place(x=110,y=200)
+addressEntry.place(x=120, y=250)
 
 root.mainloop()
