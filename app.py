@@ -31,7 +31,28 @@ else:
 
 
 def submit():
-    pass
+    name=nameValue.get()
+    contact=contactValue.get()
+    age=AgeValue.get()
+    gender=gender_combobox.get()
+    address=addressEntry.get(1.0,END)
+
+    file=openpyxl.load_workbook('Backened_data.xlsx')
+    sheet=file.active
+    sheet.cell(column=1, row=sheet.max_row+1,value=name)
+    sheet.cell(column=2, row=sheet.max_row,value=contact)
+    sheet.cell(column=3, row=sheet.max_row,value=age)
+    sheet.cell(column=4, row=sheet.max_row,value=gender)
+    sheet.cell(column=5, row=sheet.max_row,value=address)
+
+    file.save('Backened_data.xlsx')
+
+    messagebox.showinfo('info', 'detail added!')
+
+    nameValue.set('')
+    contactValue.set('')
+    AgeValue.set('')
+    addressEntry.delete(1.0,END)
 
 
 def clear():
@@ -79,7 +100,7 @@ addressEntry.place(x=120, y=250)
 
 
 #BUTTONS
-Button(root, text="Submit", bg="#326273", fg="#fff", width=15, height=2).place(x=200, y=350)
+Button(root, text="Submit", bg="#326273", fg="#fff", width=15, height=2, command=submit()).place(x=200, y=350)
 Button(root, text="Clear", bg="#326273", fg="#fff", width=15, height=2, command=clear()).place(x=340, y=350)
 Button(root, text="Exit", bg="#326273", fg="#fff", width=15, height=2, command=lambda:root.destroy()).place(x=480, y=350)
 
