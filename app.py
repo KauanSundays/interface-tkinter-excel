@@ -29,31 +29,32 @@ else:
     file.save('Backened_data.xlsx')
 
 
-
 def submit():
-    name=nameValue.get()
-    contact=contactValue.get()
-    age=AgeValue.get()
-    gender=gender_combobox.get()
-    address=addressEntry.get(1.0,END)
+    name = nameValue.get()
+    contact = contactValue.get()
+    age = AgeValue.get()
+    gender = gender_combobox.get()
+    address = addressEntry.get(1.0, END)
 
-    file=openpyxl.load_workbook('Backened_data.xlsx')
-    sheet=file.active
-    sheet.cell(column=1, row=sheet.max_row+1,value=name)
-    sheet.cell(column=2, row=sheet.max_row,value=contact)
-    sheet.cell(column=3, row=sheet.max_row,value=age)
-    sheet.cell(column=4, row=sheet.max_row,value=gender)
-    sheet.cell(column=5, row=sheet.max_row,value=address)
+    file = openpyxl.load_workbook('Backened_data.xlsx')
+    sheet = file.active
+
+    violet_fill = openpyxl.styles.PatternFill(start_color='8A2BE2', end_color='8A2BE2', fill_type='solid')
+
+    sheet.cell(column=1, row=sheet.max_row + 1, value=name).fill = violet_fill
+    sheet.cell(column=2, row=sheet.max_row, value=contact).fill = violet_fill
+    sheet.cell(column=3, row=sheet.max_row, value=age).fill = violet_fill
+    sheet.cell(column=4, row=sheet.max_row, value=gender).fill = violet_fill
+    sheet.cell(column=5, row=sheet.max_row, value=address).fill = violet_fill
 
     file.save('Backened_data.xlsx')
 
-    messagebox.showinfo('info', 'detail added!')
+    messagebox.showinfo('info', 'Detalhes adicionados!')
 
     nameValue.set('')
     contactValue.set('')
     AgeValue.set('')
-    addressEntry.delete(1.0,END)
-
+    addressEntry.delete(1.0, END)
 
 def clear():
     nameValue.set('')
