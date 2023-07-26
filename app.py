@@ -3,14 +3,42 @@ from tkinter.ttk import Combobox
 from tkinter import messagebox
 import tkinter as tk
 import openpyxl ,xlrd
-from openpyxl import workbook
+from openpyxl import Workbook
 import pathlib
+
+
 
 root=Tk()
 root.title("Data Entry")
 root.geometry('700x400+300+200')
 root.resizable(False,False)
 root.configure(bg='#326273') #cor de fundo
+
+file=pathlib.Path('Backened_data.xlsx')
+if file.exists():
+    pass
+else:
+    file=Workbook()
+    sheet=file.active
+    sheet['A1']="Full Name"
+    sheet['B1']="Phone Number"
+    sheet['C1']="Age"
+    sheet['D1']="Gender"
+    sheet['E1']="Address"
+
+    file.save('Backened_data.xlsx')
+
+
+
+def submit():
+    pass
+
+
+def clear():
+    nameValue.set('')
+    contactValue.set('')
+    AgeValue.set('')
+    addressEntry.delete(1.0,END)
 
 #edit icon
 icon_image=PhotoImage(file="cogumelo.png")
@@ -33,8 +61,8 @@ contactValue = StringVar()
 AgeValue = StringVar()
 
 nameEntry = Entry(root, textvariable=nameValue, width=45, bd=2, font=20)
-contactEntry = Entry(root, textvariable=nameValue, width=45, bd=2, font=20)
-AgeEntry = Entry(root, textvariable=nameValue, width=15, bd=2, font=20)
+contactEntry = Entry(root, textvariable=contactValue, width=45, bd=2, font=20)
+AgeEntry = Entry(root, textvariable=AgeValue, width=15, bd=2, font=20)
 
 #gender / caixinha com opções
 gender_combobox =  Combobox(root,values=['Male', 'Female'], font='arial 14', state='r', width=14)
@@ -48,5 +76,11 @@ nameEntry.place(x=110,y=100)
 contactEntry.place(x=110,y=150)
 AgeEntry.place(x=110,y=200)
 addressEntry.place(x=120, y=250)
+
+
+#BUTTONS
+Button(root, text="Submit", bg="#326273", fg="#fff", width=15, height=2).place(x=200, y=350)
+Button(root, text="Clear", bg="#326273", fg="#fff", width=15, height=2, command=clear()).place(x=340, y=350)
+Button(root, text="Exit", bg="#326273", fg="#fff", width=15, height=2, command=lambda:root.destroy()).place(x=480, y=350)
 
 root.mainloop()
