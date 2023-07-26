@@ -100,8 +100,8 @@ addressEntry.place(x=120, y=250)
 
 
 #BUTTONS
-Button(root, text="Submit", bg="#326273", fg="#fff", width=15, height=2, command=submit()).place(x=200, y=350)
-Button(root, text="Clear", bg="#326273", fg="#fff", width=15, height=2, command=clear()).place(x=340, y=350)
+Button(root, text="Submit", bg="#326273", fg="#fff", width=15, height=2, command=submit).place(x=200, y=350)
+Button(root, text="Clear", bg="#326273", fg="#fff", width=15, height=2, command=clear).place(x=340, y=350)
 Button(root, text="Exit", bg="#326273", fg="#fff", width=15, height=2, command=lambda:root.destroy()).place(x=480, y=350)
 
 root.mainloop()
